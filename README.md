@@ -39,7 +39,7 @@ How would your project integrate a neuroimager/clinician/psychologist/computatio
 
 * 2) read in data and bring it into a format that can be fed into a classifier
 
-* 3) build the architecture for the machine learning algorithm
+* 3) build the architecture for the algorithm
 
 * 4) Tune hyperparameters to improve accuracy
 
@@ -54,7 +54,7 @@ How would your project integrate a neuroimager/clinician/psychologist/computatio
 * https://db.humanconnectome.org
 * First 10 subjects from the Q2 release of the 1200 Subjects package)
 * 10.8 GB
-* Subject IDs: 103414, 105115, 110411, 113619, 115320, 116120, 118730, 123117, 124422, 129028
+* Subject IDs: 100307, 103414, 105115, 110411, 111312, 113619, 115320, 117122, 118730, 118932
 * Further instructions for downloading from HCP: https://wiki.humanconnectome.org/display/PublicData/How+to+Access+Data+on+ConnectomeDB
 
 Contact me, if you need help with downloading.
@@ -63,7 +63,6 @@ Contact me, if you need help with downloading.
 ## Sulcal labels
 
 ... will follow in this GitHub directory ...
-
 
 
 # Link GitHub repo:
