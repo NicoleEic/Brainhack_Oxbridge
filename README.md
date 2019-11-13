@@ -14,7 +14,7 @@ We will work on open access data from the HCP database, which the participants w
 
 # Skills required to participate
 
-Some programming experience and maybe a bit of machine learning? If no experience, no problem, we can work together in pairs.
+Some programming experience (shell script, Python) and maybe a bit of machine learning? If no experience, no problem, we can work together in pairs. We will use Workbench Connectome software, so some experience with the tools and wb_view would be useful.
 
 
 # What different types of people could contribute?
@@ -48,22 +48,18 @@ How would your project integrate a neuroimager/clinician/psychologist/computatio
 
 # Preparation material
 
-## HCP data
-* Download data for 10 subjects of the HCP database
+* HCP data: Download data from HCP database
 * Important: accept Open access Terms and Conditions of data usage
 * https://db.humanconnectome.org
-* First 10 subjects from the Q2 release of the 1200 Subjects package)
-* 10.8 GB
-* Subject IDs: 100307, 103414, 105115, 110411, 111312, 113619, 115320, 117122, 118730, 118932
+* 10 subjects from the Q2 release of the 1200 Subjects package
+* approx size of download 10.8 GB
+* Subject IDs: 100307 103414 105115 110411 113619 115320 118730 123117 124422 129028
 * Further instructions for downloading from HCP: https://wiki.humanconnectome.org/display/PublicData/How+to+Access+Data+on+ConnectomeDB
+* Download Workbench Connectome software: https://www.humanconnectome.org/software/connectome-workbench
+* make sure that Python is running on the computer
+* Sulcal labels: A subset of labels have been uploaded to the GitHub repository in the subfolder 'labels'
 
-Contact me, if you need help with downloading.
-
-
-## Sulcal labels
-
-... will follow in this GitHub directory ...
-
+Contact me, if you need help with downloading or installation.
 
 # Link GitHub repo:
 
