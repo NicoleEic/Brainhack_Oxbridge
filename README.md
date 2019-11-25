@@ -58,6 +58,8 @@ The automatic segmentation of sulci can be described in the context of a compute
 
 <img src="doc/segmentation.png" align="center" width="750px"> <br>
 Classic example for a segmentation problem: Classifying objects in real time during autonomous driving. Accessed via [this website](https://medium.com/intro-to-artificial-intelligence/semantic-segmentation-udaitys-self-driving-car-engineer-nanodegree-c01eb6eaf9d).
+
+
 <img src="doc/unet.png" align="center" width="750px"> <br>
 Original UNET architecture proposed by Ronneberger et al. 2015. Accessed via [arXiv:1505.04597](https://arxiv.org/pdf/1505.04597.pdf)
 
@@ -70,7 +72,7 @@ We were interested in pursuing an approach using a convolutional neural network 
 
 The cortical brain surface is represented in form of a closed mesh that can be understood as undirected graph. The surface mesh consists of vertices (nodes) and edges, which form faces - triangles in the case of a brain surface (see Figure A below). In the case of the gifti file format (.surf.gii), the file stores two data arrays: A *n* x 3 array that stores the coordinates of each vertex in space and a *m* x 3 array that stores the indices of the vertices associated with each triangle (a,b,c in the example below). A metric file (.func.gii) contains the data associated with a vertex, for example a curvature map. These files store a *n* x 1 vector of values for each vertex.
 
-Cortical mesh data is thus represented in non-Eucledian space, which means that we can't use a conventional convolution kernel as spatial operator. We can use the information from the triangles, however, to infer the indices of the neighbouring vertices (see Figure B below for an example with arbitrary indices). We can thus reshape the data so that for each vertex, we obtain a 1 x 7 vector of vertex indices that define a neighbourhood (see Figure C). A spatial convolution kernel that would cover the local neighbourhood of a vertex can be reshaped in the same way. A convolution can thus be performed by filling in the data from a metric file using the indices from the reshaped matrix and then multiplying each row with a kernel. The kernel thus slides downwards along all *n* rows. Due to the reshaping, we can then pass through further layers of a neural network. Example code for how such convolution can be performed can be found [in one of our scripts](https://github.com/NicoleEic/Brainhack_Oxbridge/code/nn.py)
+Cortical mesh data is thus represented in non-Eucledian space, which means that we can't use a conventional convolution kernel as spatial operator. We can use the information from the triangles, however, to infer the indices of the neighbouring vertices (see Figure B below for an example with arbitrary indices). We can thus reshape the data so that for each vertex, we obtain a 1 x 7 vector of vertex indices that define a neighbourhood (see Figure C). A spatial convolution kernel that would cover the local neighbourhood of a vertex can be reshaped in the same way. A convolution can thus be performed by filling in the data from a metric file using the indices from the reshaped matrix and then multiplying each row with a kernel. The kernel thus slides downwards along all *n* rows. Due to the reshaping, we can then pass through further layers of a neural network. Example code for how such convolution can be performed can be found [in one of our scripts](https://github.com/NicoleEic/Brainhack_Oxbridge/blob/master/code/nn.py)
 
 <img src="doc/convolution.png" align="center" width="750px"> <br>
 
