@@ -1,7 +1,7 @@
 This overview is to collect the thoughts and conversation points that we made during the Oxbridge Brainhack.
 
 
-<img src="doc  /parcellation.png" align="center" width="750px"> <br>
+<img src="doc/parcellation.png" align="center" width="750px"> <br>
 Example of a cortical parcellation from FreeSurfer. Accessed from: https://surfer.nmr.mgh.harvard.edu.
 
 # Existing approaches
@@ -58,7 +58,7 @@ The automatic segmentation of sulci can be described in the context of a compute
 
 <img src="doc/segmentation.png" align="center" width="750px"> <br>
 Classic example for a segmentation problem: Classifying objects in real time during autonomous driving. Accessed via [this website](https://medium.com/intro-to-artificial-intelligence/semantic-segmentation-udaitys-self-driving-car-engineer-nanodegree-c01eb6eaf9d).
-<img src="doc/U-net.png" align="center" width="750px"> <br>
+<img src="doc/unet.png" align="center" width="750px"> <br>
 Original UNET architecture proposed by Ronneberger et al. 2015. Accessed via [arXiv:1505.04597](https://arxiv.org/pdf/1505.04597.pdf)
 
 # Graph-based convolutional neural networks
