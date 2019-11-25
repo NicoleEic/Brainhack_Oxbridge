@@ -1,7 +1,7 @@
 This overview is to collect the thoughts and conversation points that we made during the Oxbridge Brainhack.
 
 
-<img src="docs/parcellation.png" align="center" width="750px"> <br>
+<img src="doc  /parcellation.png" align="center" width="750px"> <br>
 Example of a cortical parcellation from FreeSurfer. Accessed from: https://surfer.nmr.mgh.harvard.edu.
 
 # Existing approaches
@@ -56,9 +56,9 @@ The automatic segmentation of sulci can be described in the context of a compute
     * [towardsdatascience.com](https://towardsdatascience.com/understanding-semantic-segmentation-with-unet-6be4f42d4b47)
     * [medium.com](https://medium.com/intro-to-artificial-intelligence/semantic-segmentation-udaitys-self-driving-car-engineer-nanodegree-c01eb6eaf9d)
 
-<img src="docs/segmentation.png" align="center" width="750px"> <br>
+<img src="doc/segmentation.png" align="center" width="750px"> <br>
 Classic example for a segmentation problem: Classifying objects in real time during autonomous driving. Accessed via [this website](https://medium.com/intro-to-artificial-intelligence/semantic-segmentation-udaitys-self-driving-car-engineer-nanodegree-c01eb6eaf9d).
-<img src="docs/U-net.png" align="center" width="750px"> <br>
+<img src="doc/U-net.png" align="center" width="750px"> <br>
 Original UNET architecture proposed by Ronneberger et al. 2015. Accessed via [arXiv:1505.04597](https://arxiv.org/pdf/1505.04597.pdf)
 
 # Graph-based convolutional neural networks
@@ -72,7 +72,7 @@ The cortical brain surface is represented in form of a closed mesh that can be u
 
 Cortical mesh data is thus represented in non-Eucledian space, which means that we can't use a conventional convolution kernel as spatial operator. We can use the information from the triangles, however, to infer the indices of the neighbouring vertices (see Figure B below for an example with arbitrary indices). We can thus reshape the data so that for each vertex, we obtain a 1 x 7 vector of vertex indices that define a neighbourhood (see Figure C). A spatial convolution kernel that would cover the local neighbourhood of a vertex can be reshaped in the same way. A convolution can thus be performed by filling in the data from a metric file using the indices from the reshaped matrix and then multiplying each row with a kernel. The kernel thus slides downwards along all *n* rows. Due to the reshaping, we can then pass through further layers of a neural network. Example code for how such convolution can be performed can be found [in one of our scripts](https://github.com/NicoleEic/Brainhack_Oxbridge/code/nn.py)
 
-<img src="docs/convolution.png" align="center" width="750px"> <br>
+<img src="doc/convolution.png" align="center" width="750px"> <br>
 
 # MeshCNN - software
 As an alternative approach we came across a relatively new software that has been specifically developed for segmentation of shapes: [MeshCNN](https://ranahanocka.github.io/MeshCNN/). The developers implemented convolution and pooling operations that work effectively on triangular meshes. During the learning process, important geometric features are learned, while redundant edges are collapsed. The software is open-source and it runs on the PyTorch backend. Adopting this software to work with brain surface meshes and cortical labels could be a promising new approach to automatic brain parcellation.
