@@ -2,20 +2,27 @@ import nibabel as nib
 import numpy as np
 import matplotlib.pyplot as plt
 import keras
+import os
 from keras.layers import *
 from scipy.signal import convolve2d
 from sklearn.model_selection import train_test_split
 import pdb
 
-sub_list = ['subj1', 'subj2', 'subj3', 'subj4', 'subj5', 'subj6', 'subj7', 'subj8', 'subj9']
+HCP_dir = os.path.join(os.sep, 'Users', 'neichert', 'code', 'Brainhack', 'local_only_nicole', 'data')
+sub_list = ['103414', '105115', '110411', '113619', '115320', '118730', '123117', '124422', 's129028']
+n_vertices = 32492
+n_subs = len(sub_list)
+# Labels to predict
 Y_dat = np.array([0, 1, 0, 1, 0, 1, 0, 1, 1])
-X_dat = np.full((9, 1, 32492, 7), np.nan)
+# Initialize feature matrix
+X_dat = np.full((n_subs, 1, n_vertices, 7), np.nan)
 
+# TODO: vectorize this!
 for ind_sub, sub in enumerate(sub_list):
     print(f'load {sub}')
-    fname_surf = f'/vols/Data/daa/databases/HCP_Q2_FourtyUnrelatedSubjects/{sub}/MNINonLinear/fsaverage_LR32k/{sub}.L.inflated.32k_fs_LR.surf.gii'
+    fname_surf = os.path.join(HCP_dir, sub, 'MNINonLinear', 'fsaverage_LR32k', f'{sub}.L.inflated.32k_fs_LR.surf.gii')
     my_surface = nib.load(fname_surf)
-    fname_feature = f'/vols/Data/daa/databases/HCP_Q2_FourtyUnrelatedSubjects/{sub}/MNINonLinear/fsaverage_LR32k/{sub}.L.curvature.32k_fs_LR.shape.gii'
+    fname_feature = os.path.join(HCP_dir, sub, 'MNINonLinear', 'fsaverage_LR32k', f'{sub}.L.curvature.32k_fs_LR.surf.gii')
     my_feature = nib.load(fname_feature)
     # array of points with x,y,z coordinates
     ps = my_surface.darrays[0].data
@@ -24,7 +31,7 @@ for ind_sub, sub in enumerate(sub_list):
     for ind in np.arange(0, my_surface.darrays[0].data.shape[0]):
         my_dat = np.full(7, np.nan)
         n_ind = np.unique(np.append(np.append(ts[np.where(ts[:, 0] == ind)], ts[np.where(ts[:, 1] == ind)]), ts[np.where(ts[:, 2] == ind)]))
-        # featureness
+        # feature
         dat = my_feature.darrays[0].data[n_ind]
         my_dat[0:len(dat)] = dat
         X_dat[ind_sub, 0, ind, :] = my_dat
