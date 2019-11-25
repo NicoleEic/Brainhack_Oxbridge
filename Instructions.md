@@ -58,6 +58,9 @@ How would your project integrate a neuroimager/clinician/psychologist/computatio
 * Download Workbench Connectome software: https://www.humanconnectome.org/software/connectome-workbench
 * make sure that Python is running on the computer
 * Sulcal labels: A subset of labels have been uploaded to the GitHub repository in the subfolder 'labels'
+* If this results in publications, please reference accordingly (https://www.humanconnectome.org/study/hcp-young-adult/document/hcp-citations)
+
+Data were provided by the Human Connectome Project, WU-Minn Consortium (Principal Investigators: David Van Essen and Kamil Ugurbil; 1U54MH091657) funded by the 16 NIH Institutes and Centers that support the NIH Blueprint for Neuroscience Research; and by the McDonnell Center for Systems Neuroscience at Washington University.
 
 Contact me, if you need help with downloading or installation.
 
